@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+:root{
+    --blue : #5f9ef7;
+    --orange : #ff721b;
+    --white : #fff7ea;
+}
+html{
+font-family: 'Inter', sans-serif;
+}
+body{
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    height: 100vh;
+    margin: 0;
+    background-size: 200% 200%;
+    background-image: linear-gradient(45deg, rgb(162, 207, 255), rgb(255, 213, 220));
+    animation: gradient 3s linear 1s infinite alternate;
+}
+@keyframes gradient {
+    0% {
+        background-position: 100% 0%;
+    }
+    100% {
+        background-position: 0% 100%;
+    }
+}
+.header{
+    width: 30%;
+    min-width: 300px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0px 5px 5px #dddddd;
+    margin-top: 20%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.header h1{
+    font-size: 20px;
+    font-weight: 700;
+}
+.header input{
+    border: 2px solid #8bb3eb;
+    border-radius: 10px;
+    padding: 10px;
+    color: #c2c0c0;
+    
+}
+
+.header input:focus{
+    color: #6d6d6d;  
+}
+.header button{
+    background-color: #5f9ef7;
+    color: #fff7ea;
+    font-weight: 700;
+    border-radius: 10px;
+    width: 30%;
+    height: 30px;
+    text-align: center;
+}
+.header button:hover{
+    opacity: 0.6;
+}
+
+.header > div{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    >p{
+        color: #787878;
+        font-weight: 700;
+    }
+}
+
+.comment{
+    max-width: 500px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    font-weight: 400;
+}
+.comment h1{
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.comment p{
+    margin-top: 10px;
+    font-size: 13px;
+}
