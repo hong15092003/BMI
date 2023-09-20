@@ -47,8 +47,26 @@ function getBMIComment(bmi) {
             return 'Bạn nên xem xét việc giảm cân để có một lối sống khỏe mạnh hơn. Chỉ số BMI của bạn cho thấy bạn béo phì độ III, điều này có thể gây ra các vấn đề sức khỏe rất nghiêm trọng và nguy hiểm cho cuộc sống.';
     }
 }
+function calculateWeightChange(currentWeight, height) {
+    let heightInMeters = height / 100; // Chuyển đổi chiều cao từ cm sang m
+    let minNormalBMI = 18.5;
+    let maxNormalBMI = 24.9;
+
+    let minNormalWeight = minNormalBMI * heightInMeters * heightInMeters;
+    let maxNormalWeight = maxNormalBMI * heightInMeters * heightInMeters;
+
+    if (currentWeight < minNormalWeight) {
+        return `Bạn cần phải tăng ${Math.round(minNormalWeight - currentWeight)} kg để đạt được chỉ số BMI tối thiểu trong khoảng bình thường.`;
+    } else if (currentWeight > maxNormalWeight) {
+        return `Bạn cần phải giảm ${Math.round(currentWeight - maxNormalWeight)} kg để đạt được chỉ số BMI tối đa trong khoảng bình thường.`;
+    } else {
+        return '';
+    }
+}
+
 
 function printEachCharacter(str, element) {
+    element.textContent = "";
     for (let i = 0; i < str.length; i++) {
         setTimeout(function() {
             element.textContent += str[i];
@@ -67,7 +85,8 @@ function comment(){
     cmtDiv.className = 'comment';
     let bmi = check(weight, height)
     cmtH1.innerHTML="chỉ số bmi của bạn là: " + bmi + " => " + getBMICategory(bmi);
-    printEachCharacter(getBMIComment(bmi),cmtP);
+    let commentP = getBMIComment(bmi)+calculateWeightChange(weight,height);
+    printEachCharacter(commentP,cmtP);
     if(check(weight,height)!== undefined)cmtDiv.hidden = false;
 
 }
