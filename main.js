@@ -56,9 +56,9 @@ function calculateWeightChange(currentWeight, height) {
     let maxNormalWeight = maxNormalBMI * heightInMeters * heightInMeters;
 
     if (currentWeight < minNormalWeight) {
-        return `Bạn cần phải tăng ${Math.round(minNormalWeight - currentWeight)} kg để đạt được chỉ số BMI tối thiểu trong khoảng bình thường.`;
+        return `Bạn cần phải tăng ${(minNormalWeight - currentWeight).toFixed(2)} kg để đạt được chỉ số BMI tối thiểu trong khoảng bình thường.`;
     } else if (currentWeight > maxNormalWeight) {
-        return `Bạn cần phải giảm ${Math.round(currentWeight - maxNormalWeight)} kg để đạt được chỉ số BMI tối đa trong khoảng bình thường.`;
+        return `Bạn cần phải giảm ${(currentWeight - maxNormalWeight).toFixed(2)} kg để đạt được chỉ số BMI tối đa trong khoảng bình thường.`;
     } else {
         return '';
     }
